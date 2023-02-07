@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Crystal Collector</title>
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="assets/img/Evernote-Book.ico"
+    />
+
+    <link rel="stylesheet" href="assets/Vib.css" />
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <audio
+      id="my_audio"
+      src="/assets/audio/yellwoowo.mp3"
+      loop="loop"
+    ></audio>
+
+    <div id="container">
+      <div class="game">
+        <h1 class="game__header">Wakanda Vibranium</h1>
+        <div class="rules">
+          <p class="rules__par">
+            You will be given a random number at the start of the
+            game. There are four Vibraniums below. By clicking on a
+            Vibranium you will add a specific amount of points to your
+            total score. You win the game by matching your total score
+            to random number, you lose the game if your total score
+            goes above the random number. The value of each Vibranium
+            is hidden from you until you click on it. Each time when
+            the game starts, the game will change the values of each
+            Vibranium
+          </p>
+        </div>
+
+        <p id="Number"></p>
+        <div class="Vibraniums"></div>
+
+        <p id="previous"></p>
+        <p id="win"></p>
+        <p id="lost"></p>
+      </div>
+    </div>
+
+    <nav class="navigation">
+      <div class="menuToggle"></div>
+      <div class="userBx">
+        <p class="username">Desmond Hamilton</p>
+        <div class="imgBx">
+          <img src="assets/img/Desmond.jpg" alt="" />
+        </div>
+      </div>
+      <ul class="menu">
+        <li><a href="#">Portfolio</a></li>
+        <li><a href="#">Code</a></li>
+        <li><a href="Responsive-resume/">Resume</a></li>
+      </ul>
+    </nav>
+
+    <figure class="mode">
+      <img src="assets/img/moon.png" alt="moon" id="moon" />
+    </figure>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="assets/game.js"></script>
+    <script src="assets/app.js"></script>
+  </body>
+</html>

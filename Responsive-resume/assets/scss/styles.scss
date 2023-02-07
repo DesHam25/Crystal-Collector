@@ -1,0 +1,611 @@
+/*===== GOOGLE FONTS =====*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/*===== VARIABLES CSS =====*/
+:root{
+    --header-height: 3.5rem;
+
+    /*========== Colors ==========*/
+    --title-color: #0B0A0A;
+    --text-color: #403A3A;
+    --text-color-light: #707070;
+    --container-color: #FAFAFA;
+    --container-color-alt: #F0EFEF;
+    --body-color: #FCFCFC;
+
+    /*========== Font and typography ==========*/
+    --body-font: 'Poppins', sans-serif;
+
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .875rem;
+    --smaller-font-size: .813rem;
+
+    /*========== Font weight ==========*/
+    --font-medium: 500;
+    --font-semi-bold: 600;
+
+    /*========== Margenes ==========*/
+    --mb-1: .5rem;
+    --mb-2: 1rem;
+    --mb-3: 1.5rem;
+
+    /*========== z index ==========*/
+    --z-tooltip: 10;
+    --z-fixed: 100;
+}
+
+/*========== BASE ==========*/
+*,::before,::after{
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+/*========== Variables Dark theme ==========*/
+body.dark-theme{
+    --title-color: #F2F2F2;
+    --text-color: #BFBFBF;
+    --container-color: #212121;
+    --container-color-alt: #181616;
+    --body-color: #2B2B2B;
+}
+
+/*========== Button Dark/Light ==========*/
+.change-theme {
+    position: absolute;
+    right: 0;
+    top: 2.2rem;
+    display: flex;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+
+    &:hover{
+        color: var(--title-color);
+    }
+}
+
+/*========== Font size variables to scale cv ==========*/
+body.scale-cv{
+    --h1-font-size: .938rem;
+    --h2-font-size: .938rem;
+    --h3-font-size: .875rem;
+    --normal-font-size: .813rem;
+    --small-font-size: .75rem;
+    --smaller-font-size: .688rem;
+    
+}
+
+/*========== Generate PDF button ==========*/
+.generate-pdf{
+    display: none;
+    position: absolute;
+    top: 2.2rem;
+    left: 0;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    cursor: pointer;
+
+    &:hover{
+        color: var(--title-color);
+    }
+}
+
+/*========== Classes modified to reduce size and print on A4 sheet ==========*/
+.scale-cv{
+    & .change-theme,
+    & .generate-pdf{
+        display: none;
+    }
+
+    & .bd-container{
+        max-width: 595px;
+    }
+
+    & .section{
+        padding: 1.5rem 0 .80rem;
+    }
+    & .section-title{
+        margin-bottom: .75rem;
+    }
+
+    & .resume__left, 
+    .resume__right{
+        padding: 0 1rem;
+    }
+
+    & .home__img{
+        width: 90px;
+        height: 90px;
+    }
+    & .home__container{
+        gap: 1.5rem;
+    }
+    & .home__data{
+        gap: .25rem;
+    }
+    & .home__address,
+    .social__container{
+        gap: .75rem;
+    }
+    & .home__icon,
+    .social__icon,
+    .interests__icon{
+        font-size: 1rem;
+    }
+
+    & .education__container,
+    .experience__container,
+    .certificate__container{
+        gap: 1rem;
+    }
+
+    & .education__time, 
+    .experience__time{
+        padding-right: .5rem;
+    }
+    & .education__rounder,
+    .experience__rounder{
+        width: 11px;
+        height: 11px;
+        margin-top: .22rem;
+    }
+    & .education__line,
+    .experience__line{
+        width: 1px;
+        height: 110%;
+        transform: translate(5px, 0);
+    }
+    & .education__data,
+    .experience__data{
+        gap: .25rem;
+    }
+
+    & .skills__name{
+        margin-bottom: var(--mb-1);
+    }
+
+    & .interests__container{
+        column-gap: 2.5rem;
+    }
+}
+
+body{
+    margin: 0 0 var(--header-height) 0;
+    padding: 0;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    background-color: var(--body-color);
+    color: var(--text-color);
+}
+h1,h2,h3,ul,p{
+    margin: 0;  
+}
+
+h1,h2,h3{
+    color: var(--title-color);
+    font-weight: var(--font-medium);
+}
+
+ul{
+    padding: 0;
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+/*========== CLASS CSS ==========*/
+.section{
+    padding: 1.5rem 0;
+    
+    &-title{
+        font-size: var(--h2-font-size);
+        color: var(--title-color);
+        font-weight: var(--font-semi-bold);
+        text-transform: uppercase;
+        letter-spacing: .35rem;
+        text-align: center;
+        margin-bottom: var(--mb-3);
+    }
+}
+
+/*========== LAYOUT ==========*/
+
+.bd-container{
+    max-width: 968px;
+    width: calc(100% - 3rem);
+    margin-left: var(--mb-3);
+    margin-right: var(--mb-3);
+}
+
+.bd-grid{
+    display: grid;
+    gap: 1.5rem;
+}
+
+.l-header{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: var(--z-fixed);
+    background-color: var(--body-color);
+    box-shadow: 0 -1px 4px rgba(0,0,0,.1);
+    transition: .3s;
+}
+
+/*========== NAV ==========*/
+.nav{
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    &__menu{
+        @media screen and (max-width: 968px){
+            position: fixed;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            padding: 2rem 1.5rem;
+            background-color: var(--body-color);
+            box-shadow: 0 -1px 4px rgba(0,0,0,.1);
+            border-radius: 1rem 1rem 0 0;
+            z-index: var(--z-fixed);
+            transition: .3s;
+        }
+    }
+    &__logo, &__toggle{
+        color: var(--title-color);
+        font-weight: var(--font-medium);
+    }
+    &__toggle{
+        font-size: 1.2rem;
+        cursor: pointer;
+    }
+    &__item{
+        text-align: center;
+    }
+    &__list{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+    &__link{
+        display: flex;
+        flex-direction: column;
+        font-size: var(--smaller-font-size);
+        color: var(--text-color-light);
+        font-weight: var(--font-medium);
+
+        &:hover{
+            color: var(--title-color);
+        }
+    }
+    &__icon{
+        font-size: 1.2rem;
+        margin-bottom: var(--mb-1);
+    }
+}
+
+/* Show menu */
+.show-menu{
+    bottom: var(--header-height);
+}
+
+/* Active menu link */
+.active-link{
+    color: var(--title-color);
+}
+
+/*========== HOME ==========*/
+.home{
+    position: relative;
+    
+    &__container{
+        gap: 3rem;
+    }
+    &__data{
+        gap: .5rem;
+    }
+    &__data{
+        text-align: center;
+    }
+    &__img{
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        justify-self: center;
+        margin-bottom: var(--mb-1);
+    }
+    &__title{
+        font-size: var(--h1-font-size);
+    }
+    &__profession{
+        font-size: var(--normal-font-size);
+        margin-bottom: var(--mb-1);
+    }
+    &__address{
+        gap: 1rem;
+    }
+    &__information{
+        display: flex;
+        align-items: center;
+        font-size: var(--small-font-size);
+    }
+    &__icon{
+        font-size: 1.2rem;
+        margin-right: .25rem;
+    }
+    &__button-movil{
+        display: inline-block;
+        border: 2px solid var(--text-color);
+        color: var(--title-color);
+        padding: 1rem 2rem;
+        border-radius: .25rem; 
+        transition: .3s;
+        font-weight: var(--font-medium);
+        margin-top: var(--mb-3);
+
+        &:hover{
+            background-color: var(--text-color);
+            color: var(--container-color);
+        }
+    }
+}
+
+/*========== SOCIAL ==========*/
+.social{
+    &__container{
+        gap: 1rem;
+        grid-template-columns: max-content;
+    }
+    &__link{
+        display: inline-flex;
+        align-items: center;
+        font-size: var(--small-font-size);
+        color: var(--text-color);
+
+        &:hover{
+            color: var(--title-color);
+        }
+    }
+    &__icon{
+        font-size: 1.2rem;
+        margin-right: .25rem;
+    }
+}
+
+
+/*========== PROFILE ==========*/
+.profile{
+    &__description{
+        text-align: center;
+    }
+}
+
+/*========== EDUCATION AND EXPERIENCE ==========*/
+.education__content, 
+.experience__content{
+    display: flex;
+}
+
+.education__time, 
+.experience__time{
+    padding-right: 1rem;
+}
+
+.education__rounder,
+.experience__rounder{
+    position: relative;
+    display: block;
+    width: 16px;
+    height: 16px;
+    background-color: var(--text-color-light);
+    border-radius: 50%;
+    margin-top: .25rem;
+}
+
+.education__line,
+.experience__line{
+    display: block;
+    width: 2px;
+    height: 110%;
+    background-color: var(--text-color-light);
+    transform: translate(7px, 0);
+}
+
+.education__data,
+.experience__data{
+    gap: .5rem;
+}
+
+.education__title,
+.experience__title{
+    font-size: var(--h3-font-size);
+}
+
+.education__studies,
+.experience__company{
+    font-size: var(--small-font-size);
+    color: var(--title-color);
+}
+
+.education__year{
+    font-size: var(--smaller-font-size);
+}
+
+/*========== SKILLS AND LANGUAGES ==========*/
+.skills__content,
+.languages__content{
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.languages__content{
+    gap: 0;
+}
+
+.skills__name,
+.languages__name{
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--mb-2);
+}
+
+.skills__circle,
+.languages__circle{
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    background-color: var(--text-color);
+    border-radius: 50%;
+    margin-right: .75rem;
+}
+
+/*========== CERTIFICATES ==========*/
+.certificate{
+    &__title{
+        font-size: var(--h3-font-size);
+        margin-bottom: var(--mb-1);
+    }
+}
+
+/*========== REFERENCES ==========*/
+.references{
+    &__content{
+        gap: .25rem;
+    }
+    &__subtitle{
+        color: var(--text-color-light);
+    }
+    &__subtitle, 
+    &__contact{
+        font-size: var(--smaller-font-size);
+    }
+    &__title{
+        font-size: var(--h3-font-size);
+    }
+}
+
+/*========== INTERESTS ==========*/
+.interests{
+    &__container{
+        grid-template-columns: repeat(3, 1fr);
+        margin-top: var(--mb-2);
+    }
+    &__content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    &__icon{
+        font-size: 1.5rem;
+        color: var(--text-color-light);
+        margin-bottom: .25rem;
+    }
+}
+
+/* Scroll top */
+.scrolltop{
+    position: fixed;
+    right: 1rem;
+    bottom: -20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .3rem;
+    background: var(--container-color-alt);
+    border-radius: .4rem;
+    z-index: var(--z-tooltip);
+    transition: .4s;
+    visibility: hidden;
+
+    &__icon{
+        font-size: 1.2rem;
+        color: var(--text-color);
+    }
+}
+
+.show-scroll{
+    visibility: visible;
+    bottom: 5rem;
+}
+
+/*========== MEDIA QUERIES ==========*/
+// For small devices, menu two columns
+@media screen and (max-width: 320px){
+    .nav__list{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem .5rem;
+    }
+}
+
+@media screen and (min-width: 968px){
+    body{
+        margin: 3rem 0;
+    }
+    .bd-container{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .l-header,
+    .scrolltop{
+        display: none;
+    }
+
+    .resume{
+        display: grid;
+        grid-template-columns: .5fr 1fr;
+        background-color: var(--container-color);
+        box-shadow: 0 0 8px rgba(13, 12, 12, .15);
+
+        &__left{
+            background-color: var(--container-color-alt);
+        }
+        &__left, &__right{
+            padding: 0 1.5rem;
+        }
+    }
+
+    .generate-pdf{
+        display: inline-block;
+    }
+
+    .section-title, 
+    .profile__description{
+        text-align: initial;
+    }
+
+    .home{
+        &__container{
+            gap: 1.5rem;
+        }
+        &__button-movil{
+            display: none;
+        }
+    }
+
+    .references__container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .languages__content{
+        grid-template-columns: repeat(3, max-content);
+        column-gap: 3.5rem;
+    }
+
+    .interests__container{
+        grid-template-columns: repeat(4, max-content);
+        column-gap: 3.5rem;
+    }
+}
